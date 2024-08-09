@@ -48,7 +48,7 @@ public:
 	void append(const label_t label, const position_t pos);
 	void set(const level_t level, const position_t pos);
 
-    private:
+    public:
 	bool is_valid_; // True means the iter currently points to a valid key
 	LoudsSparse* trie_;
 	level_t start_level_;

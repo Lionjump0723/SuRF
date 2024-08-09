@@ -58,7 +58,7 @@ public:
 			     const bool is_move_left_complete,
 			     const bool is_move_right_complete);
 
-    private:
+    public:
 	// True means the iter either points to a valid key 
 	// or to a prefix with length trie_->getHeight()
 	bool is_valid_;

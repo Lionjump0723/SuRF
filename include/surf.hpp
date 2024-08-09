@@ -34,6 +34,11 @@ public:
 	bool operator ++(int);
 	bool operator --(int);
 
+    // true implies that dense_iter_ is valid
+	LoudsDense::Iter dense_iter_;
+	LoudsSparse::Iter sparse_iter_;
+	bool could_be_fp_;
+    
     private:
 	void passToSparse();
 	bool incrementDenseIter();
@@ -42,10 +47,7 @@ public:
 	bool decrementSparseIter();
 
     private:
-	// true implies that dense_iter_ is valid
-	LoudsDense::Iter dense_iter_;
-	LoudsSparse::Iter sparse_iter_;
-	bool could_be_fp_;
+	
 
 	friend class SuRF;
     };
@@ -118,13 +120,12 @@ public:
 	louds_dense_->destroy();
 	louds_sparse_->destroy();
     }
-
-private:
     LoudsDense* louds_dense_;
     LoudsSparse* louds_sparse_;
     SuRFBuilder* builder_;
     SuRF::Iter iter_;
     SuRF::Iter iter2_;
+private:
 };
 
 void SuRF::create(const std::vector<std::string>& keys, 
